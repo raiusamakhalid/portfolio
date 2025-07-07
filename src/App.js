@@ -4,6 +4,7 @@ import { ChevronDown, Mail, Phone, MapPin, Linkedin, ExternalLink, Code, Databas
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +16,9 @@ const App = () => {
 
   const skills = {
     languages: ['JavaScript', 'TypeScript', 'Solidity', 'Rust', 'C++', 'SQL', 'PHP'],
-    blockchain: ['Web3.js', 'Ethers.js', 'Solana Web3', 'Smart Contracts', 'DeFi', 'NFT', 'Ethereum', 'Binance Smart Chain'],
     frontend: ['React.js', 'Next.js', 'React Native', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'],
     backend: ['Node.js', 'Express.js', 'Nest.js', 'MongoDB', 'PostgreSQL', 'MySQL', 'TypeORM'],
+    blockchain: ['Web3.js', 'Ethers.js', 'Solana Web3', 'Smart Contracts', 'DeFi', 'NFT', 'Ethereum', 'Binance Smart Chain'],
     tools: ['AWS', 'Shopify', 'GitHub', 'Socket.io', 'Retool', 'Bubble.io', 'Mendix', 'Zapier']
   };
 
@@ -65,11 +66,11 @@ const App = () => {
       type: 'Full Stack'
     },
     {
-      title: 'Solana NFT Studio',
-      description: 'Full-stack platform for NFT minting, preview, and staking with real-time updates',
-      tech: ['Rust', 'Anchor', 'React.js', 'Express.js'],
-      link: 'https://solscan.io',
-      type: 'Blockchain'
+      title: 'TripTap',
+      description: 'TripTap is a smart travel planner to discover itineraries, explore destinations, organize daily plans, and save favorite places easily.',
+      tech: ['Next.js', 'Nest.js', 'PostgreSQL'],
+      link: 'https://app.triptap.com',
+      type: 'Full Stack'
     },
     {
       title: 'NFT Marketplace - Solana',
@@ -109,6 +110,20 @@ const App = () => {
     }
   };
 
+  const handleMenuClick = (sectionId) => {
+    scrollToSection(sectionId);
+    setIsMenuOpen(false);
+  };
+
+  const toggleMenu = () => {
+    const newState = !isMenuOpen;
+    setIsMenuOpen(newState);
+    if (newState) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
       {/* Navigation */}
@@ -118,6 +133,18 @@ const App = () => {
             <div className="text-2xl font-bold">
               Usama Khalid
             </div>
+            {/* <div className="hidden md:flex space-x-8">
+              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="hover:text-blue-400 transition-colors duration-200 font-medium"
+                >
+                  {item}
+                </button>
+              ))}
+            </div> */}
+            {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
                 <button
@@ -129,9 +156,27 @@ const App = () => {
                 </button>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-white focus:outline-none"> ☰ </button>
+            </div>
+
           </div>
         </div>
       </nav>
+
+      {isMenuOpen && (
+        <div className="fixed top-16 left-0 right-0 z-50 md:hidden bg-gray-900 px-6 pt-4 pb-6 space-y-4 shadow-md">
+          {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
+            <button key={item} onClick={() => handleMenuClick(item.toLowerCase())} className="block w-full text-left text-white hover:text-blue-400 font-medium">
+              {item}
+            </button>
+          ))}
+        </div>
+      )}
+
+
 
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -139,13 +184,13 @@ const App = () => {
         <div className="text-center z-10 max-w-4xl mx-auto px-4">
           <div className="mb-8">
             {/* <div className="w-32 h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-4xl font-bold"> */}
-              <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
-                <img
-                  src="https://black-petite-donkey-38.mypinata.cloud/ipfs/bafybeihtwhw5qhcdjwokp4pwn23thwodncfogq6mupgyhnwj7htm5xj5ry"
-                  alt="Usama Khalid"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden shadow-lg border-4 border-white">
+              <img
+                src="https://black-petite-donkey-38.mypinata.cloud/ipfs/bafybeihtwhw5qhcdjwokp4pwn23thwodncfogq6mupgyhnwj7htm5xj5ry"
+                alt="Usama Khalid"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
             {/* </div> */}
           </div>
@@ -188,12 +233,10 @@ const App = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-blue-400">Professional Journey</h3>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm a passionate Full Stack and Blockchain Developer with a Bachelor's degree in Computer Science from Minhaj University Lahore.
-                With over 2 years of hands-on experience, I specialize in building cutting-edge Web3 applications, DeFi platforms, and modern web solutions.
+                I'm a passionate Full Stack Developer with a BS in Computer Science from Minhaj University Lahore, specializing in MERN, Next.js, and NestJS. With over 2 years of hands-on experience, I build scalable, modern web applications and robust backend systems.
               </p>
               <p className="text-gray-300 mb-6 leading-relaxed">
-                My expertise spans across blockchain technologies including Ethereum, Solana, and Binance Smart Chain, combined with strong full-stack
-                development skills in React.js, Node.js, and modern JavaScript frameworks.
+                My expertise spans full-stack development with React.js, Node.js, Next.js, and NestJS, along with blockchain technologies like Ethereum, Solana, and BSC.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
@@ -204,7 +247,7 @@ const App = () => {
                 <div className="bg-gray-700 bg-opacity-50 p-4 rounded-lg">
                   <Users className="w-8 h-8 text-purple-400 mb-2" />
                   <h4 className="font-semibold">2+ Years Experience</h4>
-                  <p className="text-sm text-gray-400">Web3 & Full Stack</p>
+                  <p className="text-sm text-gray-400">Full Stack & Web3</p>
                 </div>
               </div>
             </div>
@@ -240,9 +283,9 @@ const App = () => {
               <div key={category} className="bg-gray-800 bg-opacity-50 p-6 rounded-xl border border-gray-700 hover:border-blue-500 hover:border-opacity-50 transition-all duration-300">
                 <div className="flex items-center mb-4">
                   {category === 'languages' && <Code className="w-6 h-6 text-blue-400 mr-2" />}
-                  {category === 'blockchain' && <Link className="w-6 h-6 text-purple-400 mr-2" />}
                   {category === 'frontend' && <Cpu className="w-6 h-6 text-green-400 mr-2" />}
                   {category === 'backend' && <Database className="w-6 h-6 text-orange-400 mr-2" />}
+                  {category === 'blockchain' && <Link className="w-6 h-6 text-purple-400 mr-2" />}
                   {category === 'tools' && <Award className="w-6 h-6 text-pink-400 mr-2" />}
                   <h3 className="text-xl font-semibold capitalize">
                     {category === 'blockchain' ? 'Web3 & Blockchain' : category}
