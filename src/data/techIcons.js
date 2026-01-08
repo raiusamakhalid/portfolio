@@ -1,0 +1,28 @@
+// Technology icons data with file paths
+export const techIcons = [
+  { name: 'HTML5', iconPath: '/icons/html5.svg' },
+  { name: 'CSS3', iconPath: '/icons/css3.svg' },
+  { name: 'JavaScript', iconPath: '/icons/javascript.svg' },
+  { name: 'TypeScript', iconPath: '/icons/typescript.svg' },
+  { name: 'React', iconPath: '/icons/react.svg' },
+  { name: 'Next.js', iconPath: '/icons/nextjs.svg' },
+  { name: 'Tailwind CSS', iconPath: '/icons/tailwindcss.svg' },
+  { name: 'Bootstrap', iconPath: '/icons/bootstrap.svg' },
+  { name: 'Node.js', iconPath: '/icons/nodejs.svg' },
+  { name: 'Express.js', iconPath: '/icons/express.svg' },
+  { name: 'Nest.js', iconPath: '/icons/nestjs-red.svg' },
+  { name: 'MongoDB', iconPath: '/icons/mongodb.svg' },
+  { name: 'PostgreSQL', iconPath: '/icons/postgresql.svg' },
+  { name: 'MySQL', iconPath: '/icons/mysql.svg' },
+  { name: 'Solidity', iconPath: '/icons/solidity.svg' },
+  { name: 'Rust', iconPath: '/icons/rust.svg' },
+  { name: 'AWS', iconPath: '/icons/aws.svg' },
+  { name: 'GitHub', iconPath: '/icons/github.svg' },
+  { name: 'PHP', iconPath: '/icons/php.svg' },
+  { name: 'C++', iconPath: '/icons/cplusplus.svg' },
+  { name: 'React Native', iconPath: '/icons/reactnative.svg' },
+  { name: 'TypeORM', iconPath: '/icons/typeorm.png' },
+  { name: 'Ethereum', iconPath: '/icons/ethereum.svg' },
+  { name: 'Solana', iconPath: '/icons/solana.svg' },
+  { name: 'Socket.io', iconPath: '/icons/socketio.svg' }
+];

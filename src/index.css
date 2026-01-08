@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: ui-serif, Georgia, serif;
+}
+
+/* Elements marked with serif class or font-serif will use serif fonts */
+.font-serif,
+.serif {
+  font-family: ui-serif, Georgia, serif;
+}
+
+/* Elements marked with sans or font-sans will use system fonts */
+.font-sans,
+.sans {
+  font-family: system-ui, -apple-system, sans-serif;
+}

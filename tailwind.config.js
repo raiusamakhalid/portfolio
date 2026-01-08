@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        serif: ['ui-serif', 'Georgia', 'serif'],
+        sans: ['system-ui', '-apple-system', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
