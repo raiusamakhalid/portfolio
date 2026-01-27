@@ -5,7 +5,7 @@ const ExperienceSection = ({ experiences }) => {
   return (
     <section>
       <h2 className="font-serif text-l mb-12 tracking-wide uppercase text-zinc-700">
-        Experience
+        Professional Experience
       </h2>
       <div className="space-y-12">
         {experiences.map((experience, index) => (

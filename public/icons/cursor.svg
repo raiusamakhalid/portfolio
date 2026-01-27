@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Cursor Icon -->
+  <path d="M40 40L160 160M160 40L40 160" stroke="#000" stroke-width="4" stroke-linecap="round" opacity="0.1"/>
+  <path d="M100 40L160 100L100 160L40 100Z" fill="#000" opacity="0.1"/>
+  <path d="M100 40L160 100L100 100Z" fill="#000"/>
+  <path d="M100 100L160 100L100 160L100 100Z" fill="#000" opacity="0.6"/>
+</svg>

@@ -10,7 +10,7 @@ const ProfileSection = ({ aboutMe }) => {
             <div className="relative max-h-[45vh] md:w-[65%] aspect-[3/4]">
               <img
                 src={aboutMe.imageUrl}
-                alt={aboutMe.name}
+                alt={`${aboutMe.name} - Full Stack & Blockchain Developer`}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
@@ -23,14 +23,18 @@ const ProfileSection = ({ aboutMe }) => {
           <p className="text-zinc-600 text-xs leading-relaxed tracking-wide uppercase mb-6">
             {aboutMe.title}
             <br />
-            {aboutMe.institution}
+            {aboutMe.experience}
+            <br />
+            {aboutMe.availability}
           </p>
           <div className="space-y-2">
+            <div className="text-xs text-zinc-500 uppercase tracking-wide mb-3">Contact Information</div>
             <a
               href={`mailto:${aboutMe.email}`}
-              className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`Email ${aboutMe.name} at ${aboutMe.email}`}
             >
               <Mail size={14} />
               {aboutMe.email}
@@ -38,7 +42,8 @@ const ProfileSection = ({ aboutMe }) => {
             <br />
             <a
               href={`tel:${aboutMe.phone}`}
-              className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
+              aria-label={`Call ${aboutMe.name} at ${aboutMe.phone}`}
             >
               <Phone size={14} />
               {aboutMe.phone}
@@ -53,9 +58,10 @@ const ProfileSection = ({ aboutMe }) => {
                 <br />
                 <a
                   href={`https://www.linkedin.com/in/${aboutMe.linkedinUsername}`}
-                  className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`View ${aboutMe.name}'s LinkedIn profile`}
                 >
                   <Linkedin size={14} />
                   linkedin.com/in/{aboutMe.linkedinUsername}

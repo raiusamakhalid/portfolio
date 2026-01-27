@@ -5,7 +5,7 @@ const ProjectsSection = ({ projects }) => {
   return (
     <section>
       <h2 className="font-serif text-l mb-12 tracking-wide uppercase text-zinc-700">
-        Portfolio
+        Projects & Portfolio
       </h2>
       <div className="space-y-12">
         {projects.map((project, index) => (
