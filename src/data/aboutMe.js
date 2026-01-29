@@ -9,6 +9,7 @@ export const aboutMe = {
   imageUrl: '/profile-image.jpg',
   linkedinUsername: 'raiusamakhalid',
   phone: '+92 320 7623119',
-  location: 'Lahore, Punjab, Pakistan'
+  location: 'Lahore, Punjab, Pakistan',
+  cvUrl: '/cv.pdf'
 };
 

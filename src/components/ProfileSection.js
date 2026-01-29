@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, Phone, MapPin } from 'lucide-react';
+import { Mail, Linkedin, Phone, MapPin, Download } from 'lucide-react';
 
 const ProfileSection = ({ aboutMe }) => {
   return (
@@ -27,6 +27,19 @@ const ProfileSection = ({ aboutMe }) => {
             <br />
             {aboutMe.availability}
           </p>
+          {aboutMe.cvUrl && (
+            <a
+              href={aboutMe.cvUrl}
+              download
+              className="inline-flex items-center gap-2 text-sm font-medium text-zinc-700 bg-zinc-100 hover:bg-zinc-200 px-4 py-2.5 rounded-lg transition-colors mb-6"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Download CV"
+            >
+              <Download size={16} />
+              Download CV
+            </a>
+          )}
           <div className="space-y-2">
             <div className="text-xs text-zinc-500 uppercase tracking-wide mb-3">Contact Information</div>
             <a
