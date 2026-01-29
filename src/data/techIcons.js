@@ -5,10 +5,10 @@ export const techIconsByCategory = {
     { name: 'Next.js', iconPath: '/icons/nextjs.svg' },
     { name: 'JavaScript', iconPath: '/icons/javascript.svg' },
     { name: 'TypeScript', iconPath: '/icons/typescript.svg' },
-    { name: 'HTML5', iconPath: '/icons/html5.svg' },
-    { name: 'CSS3', iconPath: '/icons/css3.svg' },
-    { name: 'Tailwind CSS', iconPath: '/icons/tailwindcss.svg' },
-    { name: 'Bootstrap', iconPath: '/icons/bootstrap.svg' },
+    // { name: 'HTML5', iconPath: '/icons/html5.svg' },
+    // { name: 'CSS3', iconPath: '/icons/css3.svg' },
+    // { name: 'Tailwind CSS', iconPath: '/icons/tailwindcss.svg' },
+    // { name: 'Bootstrap', iconPath: '/icons/bootstrap.svg' },
   ],
   Backend: [
     { name: 'Node.js', iconPath: '/icons/nodejs.svg' },
@@ -22,7 +22,7 @@ export const techIconsByCategory = {
     { name: 'Solana', iconPath: '/icons/solana.svg' },
     { name: 'Ethereum', iconPath: '/icons/ethereum.svg' },
     { name: 'Rust', iconPath: '/icons/rust.svg' },
-    { name: 'Anchor', iconPath: '/icons/solana.svg' } // Using Solana icon as placeholder for Anchor
+    // { name: 'Anchor', iconPath: '/icons/solana.svg' } // Using Solana icon as placeholder for Anchor
   ],
   Databases: [
     { name: 'MongoDB', iconPath: '/icons/mongodb.svg' },
@@ -35,7 +35,7 @@ export const techIconsByCategory = {
     { name: 'Azure', iconPath: '/icons/azure.svg' },
     { name: 'GitHub', iconPath: '/icons/github.svg' },
     { name: 'Cursor', iconPath: '/icons/cursor.svg' },
-    { name: 'C++', iconPath: '/icons/cplusplus.svg' }
+    // { name: 'C++', iconPath: '/icons/cplusplus.svg' }
   ]
 };
 
