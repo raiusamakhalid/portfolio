@@ -1,8 +1,13 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const TechIcon = ({ name, iconPath }) => {
   return (
-    <div className="flex flex-col items-center group">
+    <motion.div
+      className="flex flex-col items-center group"
+      whileHover={{ scale: 1.06, y: -2 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+    >
       <div className="w-16 h-16 bg-zinc-900 rounded-lg flex items-center justify-center mb-2 group-hover:bg-zinc-800 transition-colors p-2">
         <div className="w-full h-full bg-white rounded-md flex items-center justify-center p-1.5">
           <img 
@@ -17,7 +22,7 @@ const TechIcon = ({ name, iconPath }) => {
         </div>
       </div>
       <span className="text-xs text-zinc-600 text-center">{name}</span>
-    </div>
+    </motion.div>
   );
 };
 

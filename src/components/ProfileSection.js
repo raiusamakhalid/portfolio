@@ -1,9 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail, Linkedin, Phone, MapPin, Download } from 'lucide-react';
 
 const ProfileSection = ({ aboutMe }) => {
   return (
-    <div className="md:sticky top-12 space-y-8">
+    <motion.div
+      className="md:sticky top-12 space-y-8"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+    >
       <div className="flex flex-row-reverse md:flex-col gap-4 md:space-y-8">
         {aboutMe.imageUrl && (
           <div className="w-1/3 md:w-full flex-shrink-0">
@@ -84,7 +90,7 @@ const ProfileSection = ({ aboutMe }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
