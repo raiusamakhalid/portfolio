@@ -1,9 +1,14 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const ProjectEntry = ({ project }) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-6">
+    <motion.div
+      className="flex flex-col sm:flex-row gap-6"
+      whileHover={{ x: 2 }}
+      transition={{ duration: 0.2 }}
+    >
       <div className="flex flex-col flex-1">
         <h3 className="font-serif text-md mb-2 text-zinc-900">
           {project.projectUrl ? (
@@ -103,7 +108,7 @@ const ProjectEntry = ({ project }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

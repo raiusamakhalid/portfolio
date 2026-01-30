@@ -1,18 +1,22 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import ExperienceEntry from './ExperienceEntry';
+import { AnimatedSection, StaggerContainer, itemVariants } from './AnimatedSection';
 
 const ExperienceSection = ({ experiences }) => {
   return (
-    <section>
+    <AnimatedSection>
       <h2 className="font-serif text-l mb-12 tracking-wide uppercase text-zinc-700">
         Professional Experience
       </h2>
-      <div className="space-y-12">
+      <StaggerContainer className="space-y-12" stagger={0.1}>
         {experiences.map((experience, index) => (
-          <ExperienceEntry key={index} experience={experience} />
+          <motion.div key={index} variants={itemVariants}>
+            <ExperienceEntry experience={experience} />
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </StaggerContainer>
+    </AnimatedSection>
   );
 };
 

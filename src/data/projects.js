@@ -1,7 +1,7 @@
 export const projects = [
   {
-    title: 'Succession Planning & AI-Driven Assessment Platform',
-    client: 'Takafoo / Mubadala Company (Dubai)',
+    title: 'Takafoo | Aslase | Mubadala Investment Company (Dubai)',
+    // client: 'Takafoo / Mubadala Company (Dubai)',
     overview: 'An AI-powered succession planning platform managing end-to-end employee growth, evaluation, and leadership nomination workflows.',
     keyFeatures: [
       'End-to-end assessment → interview → nomination pipeline',
@@ -23,8 +23,8 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Remote Work & Assessment Platform',
-    client: 'G42 Company',
+    title: 'Remote Work | Aslase | G42 Company (Dubai)',
+    // client: 'G42 Company',
     overview: 'A remote work platform managing assessments, onboarding, interviews, booting, and exit processes with secure authentication.',
     keyFeatures: [
       'Integration with Qudrata Tech assessment platform',
@@ -46,7 +46,7 @@ export const projects = [
     featured: true
   },
   {
-    title: 'Diligentsia - AI-Powered Auditing',
+    title: 'Diligentsia - AI-Powered Auditing | Softtik Technologies',
     description: 'AI system generating audit reports and rate the company using OpenAI, reducing manual reporting time by 70%',
     keyFeatures: [
       'AI system generating audit reports and rate the company using OpenAI',
@@ -65,7 +65,7 @@ export const projects = [
     type: 'Full Stack'
   },
   {
-    title: 'TripTap',
+    title: 'TripTap | Freelance',
     description: 'Smart travel planner web application to plan the whole` trip and explore the destinations',
     keyFeatures: [
       'Plan the whole trip and explore the destinations',
@@ -77,14 +77,14 @@ export const projects = [
     type: 'Full Stack'
   },
   {
-    title: 'NFT Marketplace - Solana',
+    title: 'NFT Marketplace - Solana | Vaival Technologies',
     description: 'Complete blockchain NFT marketplace on Solana network supporting minting, listing, buying, and transfers. Built with Solana Anchor framework, Next.js, and Web3 wallet integration',
     technologies: ['Solana Anchor', 'Next.js', 'Wallet Integration', 'Rust', 'Blockchain'],
     projectUrl: 'https://solscan.io',
     type: 'Blockchain'
   },
   {
-    title: 'CUX Sync Model',
+    title: 'CUX Sync Model | Vaival Technologies',
     description: 'Enterprise project management system with real-time collaboration using dual database architecture (MongoDB and PostgreSQL). Built with Nest.js, Next.js, and SocketCluster for live updates',
     technologies: ['Nest.js', 'Next.js', 'SocketCluster', 'MongoDB', 'PostgreSQL'],
     type: 'Full Stack'

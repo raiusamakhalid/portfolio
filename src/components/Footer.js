@@ -1,8 +1,15 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = ({ name }) => {
   return (
-    <footer className="border-t border-neutral-200 bg-[#FFFCF8]">
+    <motion.footer
+      className="border-t border-neutral-200 bg-[#FFFCF8]"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="mx-auto max-w-screen-lg px-8 py-12">
         <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-neutral-500">
           <span>© {new Date().getFullYear()} {name}.</span>
@@ -11,7 +18,7 @@ const Footer = ({ name }) => {
           <span>Built with React.js & Tailwind CSS</span>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

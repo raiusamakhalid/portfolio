@@ -18,9 +18,9 @@ export const techIconsByCategory = {
     { name: 'Socket.io', iconPath: '/icons/socketio.svg' }
   ],
   Blockchain: [
-    { name: 'Solidity', iconPath: '/icons/solidity.svg' },
     { name: 'Solana', iconPath: '/icons/solana.svg' },
     { name: 'Ethereum', iconPath: '/icons/ethereum.svg' },
+    { name: 'Solidity', iconPath: '/icons/solidity.svg' },
     { name: 'Rust', iconPath: '/icons/rust.svg' },
     // { name: 'Anchor', iconPath: '/icons/solana.svg' } // Using Solana icon as placeholder for Anchor
   ],
