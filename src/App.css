@@ -1,38 +1,205 @@
-.App {
-  text-align: center;
+/* Honeycomb Skills Grid */
+.skills-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.honeycomb-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.honeycomb-row {
+  display: flex;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.honeycomb-row.staggered-row {
+  margin-left: 73px;
+}
+
+.honeycomb-row .hexagon {
+  position: relative;
+  width: 120px;
+  height: 138px;
+  margin: -8px 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.honeycomb-row .hexagon::before,
+.honeycomb-row .hexagon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%);
+}
+
+.honeycomb-row .hexagon::before {
+  background-color: #2a1d4c;
+  z-index: 1;
+}
+
+.honeycomb-row .hexagon::after {
+  background-color: #915eff;
+  z-index: -1;
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.hexagon-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 6px;
 }
 
-.App-link {
-  color: #61dafb;
+.hexagon-content img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.hexagon-content span {
+  font-size: 10px;
+  font-weight: 500;
+  color: #aaa6c3;
+  text-align: center;
+  max-width: 80px;
+  line-height: 1.2;
+}
+
+.honeycomb-row .hexagon:hover {
+  filter: drop-shadow(0 0 12px rgba(145, 94, 255, 0.8));
+}
+
+.honeycomb-row .hexagon:hover::after {
+  opacity: 1;
+}
+
+.honeycomb-row .hexagon:hover .hexagon-content span {
+  color: #ffffff;
+}
+
+.category-label {
+  font-size: 20px;
+  font-weight: 600;
+  background: linear-gradient(90deg, #915EFF, #00BFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-align: left;
+  padding: 16px 0 4px 0;
+}
+
+@media (max-width: 600px) {
+  .honeycomb-row .hexagon {
+    width: 88px;
+    height: 101px;
+    margin: -6px 4px;
   }
-  to {
-    transform: rotate(360deg);
+  .hexagon-content img {
+    width: 36px;
+    height: 36px;
   }
+  .hexagon-content span {
+    font-size: 8px;
+  }
+  .honeycomb-row.staggered-row {
+    margin-left: 50px;
+  }
+}
+
+/* Vertical Timeline */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #915EFF 0%, rgba(16, 13, 37, 0.3) 100%);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -28px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #915EFF;
+  border: 3px solid #050816;
+  box-shadow: 0 0 0 2px #915EFF;
+}
+
+/* Project cards */
+.project-card {
+  background: #100d25;
+  border: 1px solid rgba(145, 94, 255, 0.15);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: rgba(145, 94, 255, 0.4);
+  box-shadow: 0 0 24px rgba(145, 94, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Tech badges */
+.tech-badge {
+  background: rgba(145, 94, 255, 0.1);
+  border: 1px solid rgba(145, 94, 255, 0.2);
+  color: #aaa6c3;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* Navbar */
+.navbar-blur {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(5, 8, 22, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* gradient text utility */
+.gradient-text {
+  background: linear-gradient(90deg, #915EFF, #00BFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
