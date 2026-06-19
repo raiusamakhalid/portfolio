@@ -1,15 +1,17 @@
 export const aboutMe = {
   name: 'Usama Khalid',
-  title: 'Full Stack & Blockchain Developer',
-  experience: '3+ Years Experience | React, Node.js, Solidity, Solana',
-  availability: 'Open to Dubai Onsite & Remote Opportunities',
+  title: 'Full Stack Developer',
+  roles: ['Full Stack Developer', 'Backend Engineer', 'React Developer', 'Node.js Developer', 'NestJS Engineer'],
+  experience: '3+ Years Experience',
+  availability: 'Open to On-site, Hybrid, or Remote Roles',
   institution: 'Minhaj University Lahore',
-  description: 'Full Stack & Blockchain Developer with 3+ years of experience building scalable web, SaaS applications & decentralized systems using React, Next.js, Node.js, NestJS, Solidity, Anchor(Rust) with Blockchain exposure.',
+  description: 'Full Stack Developer with a BS in Computer Science and 3+ years of experience building scalable web applications across SaaS, fintech, and real-time systems. Strong expertise in JavaScript, TypeScript, React.js, Next.js, Node.js, and Nest.js. Proven ability to deliver production-ready solutions for enterprise clients including G42 and Mubadala Investment Company. Experienced in REST APIs, microservices, real-time systems, and cloud infrastructure (AWS, Azure).',
   email: 'raiusamakhalid@gmail.com',
-  imageUrl: '/profile-image.jpg',
-  linkedinUsername: 'raiusamakhalid',
   phone: '+92 320 7623119',
   location: 'Lahore, Punjab, Pakistan',
-  cvUrl: '/cv.pdf'
+  website: 'usamakhalid.dev',
+  linkedinUsername: 'raiusamakhalid',
+  githubUsername: 'raiusamakhalid',
+  imageUrl: '/profile-image.jpg',
+  cvUrl: '/usamakhalid.pdf',
 };
-

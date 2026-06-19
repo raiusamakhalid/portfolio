@@ -1,26 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: #0D0E17;
+  --color-secondary: #B3B8C5;
+  --color-tertiary: #141721;
+  --color-black-100: #0D0E17;
+  --color-green: #A3C72F;
+  --color-2: #1B1E2B;
+  --color-3: #A3C72F;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: ui-serif, Georgia, serif;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Elements marked with serif class or font-serif will use serif fonts */
-.font-serif,
-.serif {
-  font-family: ui-serif, Georgia, serif;
+.hash-span {
+  margin-top: -100px;
+  padding-bottom: 100px;
+  display: block;
 }
 
-/* Elements marked with sans or font-sans will use system fonts */
-.font-sans,
-.sans {
-  font-family: system-ui, -apple-system, sans-serif;
+.violet-gradient {
+  background: #A3C72F;
+  background: linear-gradient(-90deg, #A3C72F 0%, rgba(47, 80, 10, 0) 100%);
+}
+
+.gradient-text {
+  color: #A3C72F;
+}
+
+.section-heading-sub {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  margin-bottom: 8px;
+}
+
+.section-heading-main {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .section-heading-main {
+    font-size: 1.75rem;
+  }
 }
