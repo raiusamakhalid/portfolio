@@ -8,10 +8,10 @@ const priorityConfig = {
 };
 
 const statusConfig = {
-  PRODUCTION: { label: 'PRODUCTION', bg: 'rgba(145,94,255,0.18)', color: '#c084fc', border: 'rgba(145,94,255,0.4)' },
-  LIVE:       { label: 'LIVE',       bg: 'rgba(34,197,94,0.15)',  color: '#4ade80', border: 'rgba(34,197,94,0.35)' },
-  COMPLETED:  { label: 'COMPLETED',  bg: 'rgba(99,102,241,0.15)', color: '#818cf8', border: 'rgba(99,102,241,0.35)'},
-  IN_DEV:     { label: 'IN DEV',     bg: 'rgba(251,191,36,0.15)', color: '#fbbf24', border: 'rgba(251,191,36,0.35)'},
+  PRODUCTION: { label: 'PRODUCTION', bg: 'rgba(163,199,47,0.15)',  color: '#C8E44A', border: 'rgba(163,199,47,0.4)'  },
+  LIVE:       { label: 'LIVE',       bg: 'rgba(34,197,94,0.15)',   color: '#4ade80', border: 'rgba(34,197,94,0.35)'  },
+  COMPLETED:  { label: 'COMPLETED',  bg: 'rgba(99,102,241,0.15)',  color: '#818cf8', border: 'rgba(99,102,241,0.35)' },
+  IN_DEV:     { label: 'IN DEV',     bg: 'rgba(251,191,36,0.15)',  color: '#fbbf24', border: 'rgba(251,191,36,0.35)' },
 };
 
 const Badge = ({ cfg }) => (
@@ -53,8 +53,8 @@ const Dropdown = ({ links, onClose }) => {
         top: 36,
         right: 0,
         zIndex: 50,
-        background: '#1e2438',
-        border: '1px solid rgba(255,255,255,0.1)',
+        background: '#1B1E2B',
+        border: '1px solid rgba(163,199,47,0.15)',
         borderRadius: 10,
         overflow: 'hidden',
         minWidth: 160,
@@ -68,8 +68,8 @@ const Dropdown = ({ links, onClose }) => {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2.5 px-4 py-2.5 text-sm"
-          style={{ color: '#aaa6c3' }}
-          onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(145,94,255,0.1)')}
+          style={{ color: '#B3B8C5' }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(163,199,47,0.08)')}
           onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           onClick={onClose}
         >
@@ -96,7 +96,6 @@ const ProjectEntry = ({ project, index }) => {
   const hasDescription = project.overview || (project.bullets && project.bullets.length > 0);
 
   const handleCardClick = (e) => {
-    // Don't toggle if clicking the ... menu or its children
     if (e.target.closest('[data-menu]')) return;
     if (hasDescription) setExpanded((v) => !v);
   };
@@ -109,20 +108,24 @@ const ProjectEntry = ({ project, index }) => {
       transition={{ duration: 0.5, delay: (index % 3) * 0.1 }}
       onClick={handleCardClick}
       style={{
-        background: '#12192b',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(27,30,43,0.85)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        border: '1px solid rgba(163,199,47,0.1)',
         borderRadius: 14,
         overflow: 'hidden',
         cursor: hasDescription ? 'pointer' : 'default',
-        transition: 'border-color 0.2s, box-shadow 0.2s',
+        transition: 'border-color 0.3s, box-shadow 0.3s, transform 0.3s',
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(145,94,255,0.35)';
-        e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.35)';
+        e.currentTarget.style.borderColor = 'rgba(163,199,47,0.35)';
+        e.currentTarget.style.boxShadow = '0 8px 32px rgba(163,199,47,0.1)';
+        e.currentTarget.style.transform = 'scale(1.01)';
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.08)';
+        e.currentTarget.style.borderColor = 'rgba(163,199,47,0.1)';
         e.currentTarget.style.boxShadow = 'none';
+        e.currentTarget.style.transform = 'scale(1)';
       }}
     >
       {/* Card header — always visible */}
@@ -133,7 +136,7 @@ const ProjectEntry = ({ project, index }) => {
             {project.title}
           </h3>
           <div className="flex items-center gap-1 flex-shrink-0">
-            {/* Chevron expand indicator */}
+            {/* Chevron */}
             {hasDescription && (
               <motion.div
                 animate={{ rotate: expanded ? 180 : 0 }}
@@ -152,11 +155,12 @@ const ProjectEntry = ({ project, index }) => {
                   className="flex items-center justify-center rounded-md"
                   style={{
                     width: 28, height: 28,
-                    color: '#aaa6c3',
-                    background: menuOpen ? 'rgba(145,94,255,0.12)' : 'transparent',
+                    color: '#B3B8C5',
+                    background: menuOpen ? 'rgba(163,199,47,0.12)' : 'transparent',
+                    transition: 'background 0.3s',
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(145,94,255,0.1)')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = menuOpen ? 'rgba(145,94,255,0.12)' : 'transparent')}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(163,199,47,0.1)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = menuOpen ? 'rgba(163,199,47,0.12)' : 'transparent')}
                 >
                   <MoreHorizontal size={16} />
                 </button>
@@ -180,9 +184,9 @@ const ProjectEntry = ({ project, index }) => {
               <span
                 key={i}
                 style={{
-                  background: 'rgba(145,94,255,0.1)',
-                  border: '1px solid rgba(145,94,255,0.22)',
-                  color: '#a78bfa',
+                  background: 'rgba(163,199,47,0.08)',
+                  border: '1px solid rgba(163,199,47,0.2)',
+                  color: '#C8E44A',
                   borderRadius: 20,
                   padding: '2px 9px',
                   fontSize: 10.5,
@@ -211,8 +215,8 @@ const ProjectEntry = ({ project, index }) => {
             <div
               style={{
                 padding: '14px 18px 16px',
-                borderTop: '1px solid rgba(145,94,255,0.12)',
-                background: 'rgba(145,94,255,0.04)',
+                borderTop: '1px solid rgba(163,199,47,0.1)',
+                background: 'rgba(163,199,47,0.03)',
               }}
             >
               {project.overview && (
@@ -231,7 +235,7 @@ const ProjectEntry = ({ project, index }) => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.06 }}
                     >
-                      <span className="flex-shrink-0 mt-2 w-1 h-1 rounded-full" style={{ background: '#915EFF' }} />
+                      <span className="flex-shrink-0 mt-2 w-1 h-1 rounded-full" style={{ background: '#A3C72F' }} />
                       {b}
                     </motion.li>
                   ))}
@@ -243,7 +247,7 @@ const ProjectEntry = ({ project, index }) => {
       </AnimatePresence>
 
       {/* Divider */}
-      <div style={{ height: 1, background: 'rgba(255,255,255,0.05)' }} />
+      <div style={{ height: 1, background: 'rgba(163,199,47,0.06)' }} />
 
       {/* Bottom bar */}
       <div className="flex items-center justify-between gap-2" style={{ padding: '10px 18px' }}>

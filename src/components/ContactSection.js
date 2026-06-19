@@ -15,15 +15,15 @@ const floatingIcons = [
 
 const inputStyle = {
   width: '100%',
-  background: 'rgba(5,8,22,0.7)',
-  border: '1px solid rgba(255,255,255,0.1)',
+  background: 'rgba(13,14,23,0.7)',
+  border: '1px solid rgba(163,199,47,0.12)',
   borderRadius: 10,
   padding: '13px 16px',
   color: '#fff',
   fontSize: 14,
   fontFamily: 'Poppins, sans-serif',
   outline: 'none',
-  transition: 'border-color 0.2s',
+  transition: 'border-color 0.3s',
 };
 
 const ContactSection = ({ aboutMe }) => {
@@ -51,7 +51,7 @@ const ContactSection = ({ aboutMe }) => {
     <section
       id="contact"
       className="relative py-24 px-6 sm:px-12 lg:px-24 overflow-hidden"
-      style={{ background: '#050816', minHeight: '100vh' }}
+      style={{ background: 'transparent', minHeight: '100vh' }}
     >
       {/* Floating tech icons — desktop only */}
       {floatingIcons.map((icon, i) => (
@@ -64,19 +64,19 @@ const ContactSection = ({ aboutMe }) => {
             width: icon.size + 16,
             height: icon.size + 16,
             borderRadius: 12,
-            background: 'rgba(19,23,45,0.85)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(27,30,43,0.85)',
+            border: '1px solid rgba(163,199,47,0.1)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backdropFilter: 'blur(6px)',
+            backdropFilter: 'blur(8px)',
             zIndex: 1,
           }}
           className="hidden lg:flex"
           initial={{ opacity: 0, scale: 0.7 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, delay: icon.delay }}
-          whileHover={{ scale: 1.15, borderColor: 'rgba(145,94,255,0.5)' }}
+          whileHover={{ scale: 1.15, borderColor: 'rgba(163,199,47,0.45)', transition: { duration: 0.3 } }}
         >
           <img src={icon.src} alt="" style={{ width: icon.size, height: icon.size, objectFit: 'contain' }} />
         </motion.div>
@@ -87,13 +87,15 @@ const ContactSection = ({ aboutMe }) => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.42, ease: [0.16, 1, 0.3, 1] }}
           className="p-6 sm:p-10"
           style={{
-            background: 'linear-gradient(135deg, #131727 0%, #0e1422 100%)',
-            border: '1px solid rgba(255,255,255,0.07)',
+            background: 'rgba(27,30,43,0.9)',
+            backdropFilter: 'blur(16px)',
+            WebkitBackdropFilter: 'blur(16px)',
+            border: '1px solid rgba(163,199,47,0.15)',
             borderRadius: 20,
-            boxShadow: '0 24px 80px rgba(0,0,0,0.5)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(163,199,47,0.05)',
           }}
         >
           {/* Top row: GET IN TOUCH + phone */}
@@ -114,7 +116,7 @@ const ContactSection = ({ aboutMe }) => {
               <a
                 href={`tel:${aboutMe.phone}`}
                 className="flex items-center gap-1.5 text-sm font-medium transition-colors"
-                style={{ color: '#915EFF' }}
+                style={{ color: '#A3C72F' }}
               >
                 <Phone size={13} />
                 {aboutMe.phone}
@@ -136,9 +138,9 @@ const ContactSection = ({ aboutMe }) => {
               <div>
                 <label
                   className="flex items-center gap-1.5 text-xs font-medium mb-2"
-                  style={{ color: '#aaa6c3' }}
+                  style={{ color: '#B3B8C5' }}
                 >
-                  <User size={12} style={{ color: '#915EFF' }} />
+                  <User size={12} style={{ color: '#A3C72F' }} />
                   Name
                 </label>
                 <input
@@ -149,16 +151,16 @@ const ContactSection = ({ aboutMe }) => {
                   placeholder="Your name"
                   required
                   style={inputStyle}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(145,94,255,0.55)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                  onFocus={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.55)')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.12)')}
                 />
               </div>
               <div>
                 <label
                   className="flex items-center gap-1.5 text-xs font-medium mb-2"
-                  style={{ color: '#aaa6c3' }}
+                  style={{ color: '#B3B8C5' }}
                 >
-                  <Mail size={12} style={{ color: '#915EFF' }} />
+                  <Mail size={12} style={{ color: '#A3C72F' }} />
                   Email
                 </label>
                 <input
@@ -169,8 +171,8 @@ const ContactSection = ({ aboutMe }) => {
                   placeholder="Your email"
                   required
                   style={inputStyle}
-                  onFocus={(e) => (e.target.style.borderColor = 'rgba(145,94,255,0.55)')}
-                  onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                  onFocus={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.55)')}
+                  onBlur={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.12)')}
                 />
               </div>
             </div>
@@ -179,9 +181,9 @@ const ContactSection = ({ aboutMe }) => {
             <div>
               <label
                 className="flex items-center gap-1.5 text-xs font-medium mb-2"
-                style={{ color: '#aaa6c3' }}
+                style={{ color: '#B3B8C5' }}
               >
-                <MessageSquare size={12} style={{ color: '#915EFF' }} />
+                <MessageSquare size={12} style={{ color: '#A3C72F' }} />
                 Message
               </label>
               <textarea
@@ -192,28 +194,30 @@ const ContactSection = ({ aboutMe }) => {
                 required
                 rows={7}
                 style={{ ...inputStyle, resize: 'vertical' }}
-                onFocus={(e) => (e.target.style.borderColor = 'rgba(145,94,255,0.55)')}
-                onBlur={(e) => (e.target.style.borderColor = 'rgba(255,255,255,0.1)')}
+                onFocus={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.55)')}
+                onBlur={(e) => (e.target.style.borderColor = 'rgba(163,199,47,0.12)')}
               />
             </div>
 
-            {/* Send button — full width, purple→pink gradient */}
+            {/* Send button */}
             <motion.button
               type="submit"
-              className="flex items-center justify-center gap-2 w-full font-bold text-white rounded-xl"
+              className="flex items-center justify-center gap-2 w-full font-bold rounded-xl"
               style={{
                 height: 54,
                 fontSize: 15,
+                color: sent ? '#fff' : '#0D0E17',
                 background: sent
                   ? 'linear-gradient(90deg, #22c55e, #16a34a)'
-                  : 'linear-gradient(90deg, #915EFF 0%, #ec4899 100%)',
+                  : 'linear-gradient(90deg, #A3C72F 0%, #C8E44A 100%)',
                 boxShadow: sent
                   ? '0 4px 24px rgba(34,197,94,0.35)'
-                  : '0 4px 28px rgba(145,94,255,0.45)',
+                  : '0 4px 28px rgba(163,199,47,0.4)',
                 letterSpacing: '0.02em',
                 fontFamily: 'Poppins, sans-serif',
+                transition: 'all 0.3s',
               }}
-              whileHover={{ scale: 1.02, boxShadow: '0 6px 36px rgba(145,94,255,0.6)' }}
+              whileHover={{ scale: 1.02, boxShadow: '0 6px 36px rgba(163,199,47,0.6)', transition: { duration: 0.3 } }}
               whileTap={{ scale: 0.98 }}
             >
               <Send size={16} />

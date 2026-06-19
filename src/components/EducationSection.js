@@ -2,6 +2,13 @@ import React from 'react';
 import { motion, useInView } from 'framer-motion';
 import { education } from '../data/education';
 
+const CARD_STYLE = {
+  background: 'rgba(27,30,43,0.85)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  border: '1px solid rgba(163,199,47,0.1)',
+};
+
 const CardContent = ({ edu }) => (
   <>
     <h3
@@ -10,14 +17,14 @@ const CardContent = ({ edu }) => (
     >
       {edu.degree}
     </h3>
-    <p className="text-sm mb-4" style={{ color: '#aaa6c3' }}>
+    <p className="text-sm mb-4" style={{ color: '#B3B8C5' }}>
       {edu.institution}{edu.location ? `, ${edu.location}` : ''}
     </p>
     {edu.bullets && (
       <ul className="flex flex-col gap-2">
         {edu.bullets.map((b, i) => (
           <li key={i} className="flex gap-2.5 text-sm leading-relaxed" style={{ color: '#cbd5e1' }}>
-            <span className="flex-shrink-0 mt-2 w-1 h-1 rounded-full bg-white opacity-60" />
+            <span className="flex-shrink-0 mt-2 w-1 h-1 rounded-full" style={{ background: '#A3C72F', opacity: 0.7 }} />
             {b}
           </li>
         ))}
@@ -34,7 +41,7 @@ const EducationSection = () => {
     <section
       id="education"
       className="py-24 px-6 sm:px-12 lg:px-24"
-      style={{ background: '#050816' }}
+      style={{ background: 'transparent' }}
     >
       <div ref={ref} className="max-w-5xl mx-auto">
         {/* Heading */}
@@ -42,7 +49,7 @@ const EducationSection = () => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="section-heading-sub mb-3">My Academic Background</p>
           <h2
@@ -62,7 +69,7 @@ const EducationSection = () => {
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.38, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Period badge */}
                 <div className="flex items-center gap-3 mb-3">
@@ -71,26 +78,21 @@ const EducationSection = () => {
                       width: 40,
                       height: 40,
                       borderRadius: '50%',
-                      background: '#1a2744',
-                      border: '2px solid rgba(255,255,255,0.25)',
+                      background: '#1B1E2B',
+                      border: '2px solid rgba(163,199,47,0.4)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
+                      boxShadow: '0 0 12px rgba(163,199,47,0.1)',
                     }}
                   >
-                    <span style={{ color: '#fff', fontWeight: 800, fontSize: 12 }}>{initial}</span>
+                    <span style={{ color: '#A3C72F', fontWeight: 800, fontSize: 12 }}>{initial}</span>
                   </div>
-                  <span style={{ color: '#aaa6c3', fontSize: 13 }}>{edu.period}</span>
+                  <span style={{ color: '#B3B8C5', fontSize: 13 }}>{edu.period}</span>
                 </div>
                 {/* Card */}
-                <div
-                  className="rounded-xl p-5"
-                  style={{
-                    background: 'linear-gradient(135deg, #131d35, #0e1728)',
-                    border: '1px solid rgba(255,255,255,0.07)',
-                  }}
-                >
+                <div className="rounded-xl p-5" style={CARD_STYLE}>
                   <CardContent edu={edu} />
                 </div>
               </motion.div>
@@ -109,7 +111,7 @@ const EducationSection = () => {
               top: 0,
               bottom: 0,
               width: 1,
-              background: 'rgba(255,255,255,0.15)',
+              background: 'rgba(163,199,47,0.2)',
             }}
           />
 
@@ -124,17 +126,14 @@ const EducationSection = () => {
                   className="relative flex items-center"
                   initial={{ opacity: 0, y: 40 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.7, delay: index * 0.15 }}
+                  transition={{ duration: 0.42, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 >
                   {/* LEFT SIDE */}
                   <div className="flex-1 flex justify-end pr-12">
                     {isLeft ? (
                       <div
                         className="relative max-w-sm w-full rounded-xl p-6"
-                        style={{
-                          background: 'linear-gradient(135deg, #131d35, #0e1728)',
-                          border: '1px solid rgba(255,255,255,0.07)',
-                        }}
+                        style={CARD_STYLE}
                       >
                         <div
                           style={{
@@ -146,13 +145,13 @@ const EducationSection = () => {
                             height: 0,
                             borderTop: '10px solid transparent',
                             borderBottom: '10px solid transparent',
-                            borderLeft: '10px solid #131d35',
+                            borderLeft: '10px solid rgba(27,30,43,0.9)',
                           }}
                         />
                         <CardContent edu={edu} />
                       </div>
                     ) : (
-                      <p className="text-sm font-medium self-center" style={{ color: '#aaa6c3', whiteSpace: 'nowrap' }}>
+                      <p className="text-sm font-medium self-center" style={{ color: '#B3B8C5', whiteSpace: 'nowrap' }}>
                         {edu.period}
                       </p>
                     )}
@@ -168,15 +167,15 @@ const EducationSection = () => {
                       width: 56,
                       height: 56,
                       borderRadius: '50%',
-                      background: '#1a2744',
-                      border: '2px solid rgba(255,255,255,0.3)',
+                      background: '#1B1E2B',
+                      border: '2px solid rgba(163,199,47,0.5)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      boxShadow: '0 0 0 4px rgba(255,255,255,0.05)',
+                      boxShadow: '0 0 0 4px rgba(163,199,47,0.06), 0 0 16px rgba(163,199,47,0.15)',
                     }}
                   >
-                    <span style={{ color: '#fff', fontWeight: 800, fontSize: 14, fontFamily: 'Poppins, sans-serif' }}>
+                    <span style={{ color: '#A3C72F', fontWeight: 800, fontSize: 14, fontFamily: 'Poppins, sans-serif' }}>
                       {initial}
                     </span>
                   </div>
@@ -184,16 +183,13 @@ const EducationSection = () => {
                   {/* RIGHT SIDE */}
                   <div className="flex-1 pl-12">
                     {isLeft ? (
-                      <p className="text-sm font-medium" style={{ color: '#aaa6c3', whiteSpace: 'nowrap' }}>
+                      <p className="text-sm font-medium" style={{ color: '#B3B8C5', whiteSpace: 'nowrap' }}>
                         {edu.period}
                       </p>
                     ) : (
                       <div
                         className="relative max-w-sm w-full rounded-xl p-6"
-                        style={{
-                          background: 'linear-gradient(135deg, #131d35, #0e1728)',
-                          border: '1px solid rgba(255,255,255,0.07)',
-                        }}
+                        style={CARD_STYLE}
                       >
                         <div
                           style={{
@@ -205,7 +201,7 @@ const EducationSection = () => {
                             height: 0,
                             borderTop: '10px solid transparent',
                             borderBottom: '10px solid transparent',
-                            borderRight: '10px solid #131d35',
+                            borderRight: '10px solid rgba(27,30,43,0.9)',
                           }}
                         />
                         <CardContent edu={edu} />

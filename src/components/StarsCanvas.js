@@ -17,12 +17,12 @@ const generateSpherePoints = (count) => {
 
 const Stars = () => {
   const ref = useRef();
-  const sphere = generateSpherePoints(5000);
+  const sphere = generateSpherePoints(2200);
 
   useFrame((_state, delta) => {
     if (ref.current) {
-      ref.current.rotation.x -= delta / 12;
-      ref.current.rotation.y -= delta / 18;
+      ref.current.rotation.x -= delta / 80;
+      ref.current.rotation.y -= delta / 120;
     }
   });
 

@@ -10,7 +10,7 @@ const ProjectsSection = ({ projects }) => {
     <section
       id="projects"
       className="py-24 px-6 sm:px-12 lg:px-24"
-      style={{ background: '#050816' }}
+      style={{ background: 'transparent' }}
     >
       <div ref={ref} className="max-w-7xl mx-auto">
         {/* Header */}
@@ -18,7 +18,7 @@ const ProjectsSection = ({ projects }) => {
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="section-heading-sub mb-3">What I have built</p>
           <h2

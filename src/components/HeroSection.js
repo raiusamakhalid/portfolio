@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Github, Linkedin, Code2, ExternalLink, FileText, MessageCircle } from 'lucide-react';
+import { Mail, Phone, Github, Linkedin, Code2, FileText, MessageCircle } from 'lucide-react';
 
 const HeroSection = ({ aboutMe }) => {
   const firstName = aboutMe.name.split(' ')[0];
@@ -24,7 +24,7 @@ const HeroSection = ({ aboutMe }) => {
     <section
       id="home"
       className="relative min-h-screen flex flex-col"
-      style={{ background: '#050816' }}
+      style={{ background: 'transparent' }}
     >
       {/* View Code Archive — centered just below navbar */}
       <motion.div
@@ -37,10 +37,12 @@ const HeroSection = ({ aboutMe }) => {
           href={`https://github.com/${aboutMe.githubUsername}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-white"
+          className="inline-flex items-center gap-2 px-5 py-2.5 font-semibold text-sm"
           style={{
-            background: 'linear-gradient(135deg, #915EFF 0%, #6936f5 100%)',
-            boxShadow: '0 4px 20px rgba(145,94,255,0.4)',
+            background: 'linear-gradient(135deg, #A3C72F 0%, #7BA520 100%)',
+            boxShadow: '0 4px 20px rgba(163,199,47,0.35)',
+            borderRadius: 12,
+            color: '#0D0E17',
           }}
         >
           <Code2 size={14} />
@@ -60,17 +62,10 @@ const HeroSection = ({ aboutMe }) => {
               style={{ fontSize: 'clamp(2.4rem, 7vw, 4.5rem)' }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.15 }}
+              transition={{ duration: 0.42, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <span className="text-white">Hi, I'm </span>
-              <span
-                style={{
-                  background: 'linear-gradient(90deg, #915EFF 0%, #c084fc 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span style={{ color: '#A3C72F' }}>
                 {firstName}
               </span>
               <span className="ml-2" role="img" aria-label="wave">👋</span>
@@ -79,10 +74,10 @@ const HeroSection = ({ aboutMe }) => {
             {/* Description */}
             <motion.p
               className="text-sm sm:text-base leading-relaxed mb-8 text-center lg:text-left"
-              style={{ color: '#aaa6c3', maxWidth: 560 }}
+              style={{ color: '#B3B8C5', maxWidth: 560 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
+              transition={{ duration: 0.42, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
             >
               {aboutMe.description}
             </motion.p>
@@ -92,19 +87,22 @@ const HeroSection = ({ aboutMe }) => {
               className="flex flex-wrap justify-center lg:justify-start gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.35 }}
+              transition={{ duration: 0.42, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
             >
               {aboutMe.cvUrl && (
                 <motion.a
                   href={aboutMe.cvUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-white"
+                  className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm"
                   style={{
-                    background: 'linear-gradient(135deg, #915EFF 0%, #6936f5 100%)',
-                    boxShadow: '0 4px 20px rgba(145,94,255,0.4)',
+                    background: 'linear-gradient(135deg, #A3C72F 0%, #7BA520 100%)',
+                    boxShadow: '0 4px 20px rgba(163,199,47,0.35)',
+                    borderRadius: 12,
+                    color: '#0D0E17',
+                    transition: 'all 0.3s',
                   }}
-                  whileHover={{ scale: 1.05, boxShadow: '0 6px 28px rgba(145,94,255,0.55)' }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 6px 28px rgba(163,199,47,0.55)' }}
                   whileTap={{ scale: 0.97 }}
                 >
                   <FileText size={14} />
@@ -117,12 +115,16 @@ const HeroSection = ({ aboutMe }) => {
                   href={`https://github.com/${aboutMe.githubUsername}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-white"
+                  className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm"
                   style={{
-                    background: 'linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%)',
-                    boxShadow: '0 4px 20px rgba(124,58,237,0.4)',
+                    background: 'rgba(163,199,47,0.1)',
+                    border: '1px solid rgba(163,199,47,0.35)',
+                    boxShadow: '0 4px 20px rgba(163,199,47,0.12)',
+                    borderRadius: 12,
+                    color: '#C8E44A',
+                    transition: 'all 0.3s',
                   }}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.05, boxShadow: '0 6px 24px rgba(163,199,47,0.25)' }}
                   whileTap={{ scale: 0.97 }}
                 >
                   <Github size={14} />
@@ -136,12 +138,15 @@ const HeroSection = ({ aboutMe }) => {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm text-white"
+                className="inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm"
                 style={{
-                  background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
-                  boxShadow: '0 4px 20px rgba(79,70,229,0.4)',
+                  background: 'rgba(163,199,47,0.06)',
+                  border: '1px solid rgba(163,199,47,0.2)',
+                  borderRadius: 12,
+                  color: '#B3B8C5',
+                  transition: 'all 0.3s',
                 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, borderColor: 'rgba(163,199,47,0.45)', color: '#C8E44A' }}
                 whileTap={{ scale: 0.97 }}
               >
                 <MessageCircle size={14} />
@@ -157,7 +162,7 @@ const HeroSection = ({ aboutMe }) => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {/* Circular profile image — responsive size */}
+            {/* Circular profile image */}
             {aboutMe.imageUrl && (
               <div
                 style={{
@@ -165,9 +170,9 @@ const HeroSection = ({ aboutMe }) => {
                   height: 'clamp(150px, 30vw, 210px)',
                   borderRadius: '50%',
                   overflow: 'hidden',
-                  border: '4px solid rgba(145,94,255,0.4)',
-                  boxShadow: '0 0 40px rgba(145,94,255,0.25)',
-                  background: '#1a1a2e',
+                  border: '3px solid rgba(163,199,47,0.5)',
+                  boxShadow: '0 0 40px rgba(163,199,47,0.25), 0 0 80px rgba(163,199,47,0.1)',
+                  background: '#1B1E2B',
                   flexShrink: 0,
                 }}
               >
@@ -190,14 +195,14 @@ const HeroSection = ({ aboutMe }) => {
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2.5 text-sm transition-colors min-h-[36px]"
-                    style={{ color: '#aaa6c3' }}
-                    whileHover={{ color: '#915EFF' }}
+                    className="flex items-center gap-2.5 text-sm min-h-[36px]"
+                    style={{ color: '#B3B8C5' }}
+                    whileHover={{ color: '#A3C72F', transition: { duration: 0.1 } }}
+                    transition={{ color: { duration: 0.45 }, opacity: { duration: 0.5, delay: 0.3 + i * 0.08 }, x: { duration: 0.5, delay: 0.3 + i * 0.08 } }}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
                   >
-                    <Icon size={14} style={{ color: '#915EFF', flexShrink: 0 }} />
+                    <Icon size={14} style={{ color: '#A3C72F', flexShrink: 0 }} />
                     <span className="truncate">{item.label}</span>
                   </motion.a>
                 );

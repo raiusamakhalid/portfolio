@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
-  { id: 'about',      label: 'About'     },
-  { id: 'experience', label: 'Work'      },
-  { id: 'education',  label: 'Education' },
-  { id: 'skills',     label: 'Skills'    },
-  { id: 'projects',   label: 'Projects'  },
-  { id: 'contact',    label: 'Contact'   },
+  { id: 'about',      label: 'About'      },
+  { id: 'skills',     label: 'Skills'     },
+  { id: 'experience', label: 'Work'       },
+  { id: 'projects',   label: 'Projects'   },
+  { id: 'education',  label: 'Education'  },
+  { id: 'contact',    label: 'Contact'    },
 ];
 
 const MENU_CLOSE_MS = 220;
@@ -25,7 +25,26 @@ const Navbar = ({ name }) => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu when screen grows past mobile breakpoint
+  useEffect(() => {
+    const sectionIds = navLinks.map((l) => l.id);
+    const observers = [];
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActive(id);
+        },
+        { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+
+    return () => observers.forEach((obs) => obs.disconnect());
+  }, []);
+
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 640px)');
     const handler = (e) => { if (e.matches) setMenuOpen(false); };
@@ -36,7 +55,6 @@ const Navbar = ({ name }) => {
   const scrollTo = (id) => {
     setActive(id);
     if (menuOpen) {
-      // Let the menu close animation finish before scrolling
       setMenuOpen(false);
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -50,10 +68,10 @@ const Navbar = ({ name }) => {
     <motion.nav
       className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: scrolled ? 'rgba(5,8,22,0.96)' : 'transparent',
+        background: scrolled ? 'rgba(13,14,23,0.96)' : 'transparent',
         backdropFilter: scrolled ? 'blur(16px)' : 'none',
         WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.05)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(163,199,47,0.08)' : '1px solid transparent',
         transition: 'background 0.3s, border-color 0.3s',
       }}
       initial={{ y: -80 }}
@@ -70,10 +88,7 @@ const Navbar = ({ name }) => {
           }}
           className="text-xl font-bold"
           style={{
-            background: 'linear-gradient(90deg, #915EFF 0%, #c084fc 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: '#A3C72F',
             fontFamily: 'Poppins, sans-serif',
           }}
         >
@@ -87,9 +102,9 @@ const Navbar = ({ name }) => {
               <button
                 onClick={() => scrollTo(link.id)}
                 className="text-sm font-medium"
-                style={{ color: active === link.id ? '#fff' : '#aaa6c3', transition: 'color 0.2s' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#fff')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = active === link.id ? '#fff' : '#aaa6c3')}
+                style={{ color: active === link.id ? '#A3C72F' : '#B3B8C5', transition: 'color 0.2s' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#A3C72F')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = active === link.id ? '#A3C72F' : '#B3B8C5')}
               >
                 {link.label}
               </button>
@@ -105,19 +120,21 @@ const Navbar = ({ name }) => {
           style={{ minWidth: 44, minHeight: 44 }}
         >
           <span
-            className="block w-6 h-0.5 bg-white rounded-full"
+            className="block w-6 h-0.5 rounded-full"
             style={{
+              background: '#A3C72F',
               transform: menuOpen ? 'rotate(45deg) translate(4px, 4px)' : 'none',
               transition: 'transform 0.25s',
             }}
           />
           <span
-            className="block w-6 h-0.5 bg-white rounded-full"
-            style={{ opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }}
+            className="block w-6 h-0.5 rounded-full"
+            style={{ background: '#A3C72F', opacity: menuOpen ? 0 : 1, transition: 'opacity 0.2s' }}
           />
           <span
-            className="block w-6 h-0.5 bg-white rounded-full"
+            className="block w-6 h-0.5 rounded-full"
             style={{
+              background: '#A3C72F',
               transform: menuOpen ? 'rotate(-45deg) translate(4px, -4px)' : 'none',
               transition: 'transform 0.25s',
             }}
@@ -139,8 +156,8 @@ const Navbar = ({ name }) => {
             <div
               className="sm:hidden flex flex-col"
               style={{
-                background: 'rgba(5,8,22,0.98)',
-                borderTop: '1px solid rgba(145,94,255,0.12)',
+                background: 'rgba(13,14,23,0.98)',
+                borderTop: '1px solid rgba(163,199,47,0.12)',
                 paddingBottom: 8,
               }}
             >
@@ -150,12 +167,12 @@ const Navbar = ({ name }) => {
                   onClick={() => scrollTo(link.id)}
                   className="text-left text-base font-medium px-6 py-4"
                   style={{
-                    color: active === link.id ? '#915EFF' : '#aaa6c3',
+                    color: active === link.id ? '#A3C72F' : '#B3B8C5',
                     minHeight: 52,
                     borderBottom: '1px solid rgba(255,255,255,0.04)',
                     transition: 'color 0.15s, background 0.15s',
                   }}
-                  onTouchStart={(e) => (e.currentTarget.style.background = 'rgba(145,94,255,0.07)')}
+                  onTouchStart={(e) => (e.currentTarget.style.background = 'rgba(163,199,47,0.07)')}
                   onTouchEnd={(e) => (e.currentTarget.style.background = 'transparent')}
                 >
                   {link.label}

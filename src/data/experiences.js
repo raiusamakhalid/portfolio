@@ -1,6 +1,6 @@
 export const experiences = [
   {
-    date: 'Aug 2024 – Present',
+    date: 'Aug 2025 – Present',
     title: 'Senior Full Stack Engineer',
     company: 'Aslase',
     location: 'Dubai, UAE (Remote)',
@@ -14,7 +14,7 @@ export const experiences = [
     ],
   },
   {
-    date: 'Mar 2024 – Aug 2024',
+    date: 'Mar 2025 – Aug 2025',
     title: 'Software Engineer',
     company: 'Softtik Technologies',
     location: 'Lahore, Pakistan (On-site)',
@@ -26,7 +26,7 @@ export const experiences = [
     ],
   },
   {
-    date: 'Aug 2023 – Feb 2024',
+    date: 'Aug 2023 – Feb 2025',
     title: 'Associate Software Engineer',
     company: 'Vaival Technologies',
     location: 'Lahore, Pakistan (On-site)',

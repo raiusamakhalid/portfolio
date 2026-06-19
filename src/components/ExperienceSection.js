@@ -4,9 +4,9 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 const companyMeta = {
   'Aslase': {
     initials: 'AS',
-    bg: 'linear-gradient(135deg, #1a0540, #2d1060)',
-    accent: '#915EFF',
-    logoBg: '#2a1060',
+    bg: 'linear-gradient(135deg, #0F1A05, #182A05)',
+    accent: '#A3C72F',
+    logoBg: '#182A05',
   },
   'Softtik Technologies': {
     initials: 'ST',
@@ -25,9 +25,9 @@ const companyMeta = {
 const getCompanyMeta = (company) =>
   companyMeta[company] || {
     initials: company.slice(0, 2).toUpperCase(),
-    bg: 'linear-gradient(135deg, #1d1836, #2d2650)',
-    accent: '#915EFF',
-    logoBg: '#2a1d4c',
+    bg: 'linear-gradient(135deg, #141721, #1B1E2B)',
+    accent: '#A3C72F',
+    logoBg: '#1B1E2B',
   };
 
 const ExperienceSection = ({ experiences }) => {
@@ -42,7 +42,7 @@ const ExperienceSection = ({ experiences }) => {
     <section
       id="experience"
       className="py-24 px-6 sm:px-12 lg:px-24"
-      style={{ background: '#050816' }}
+      style={{ background: 'transparent' }}
     >
       <div ref={ref} className="max-w-6xl mx-auto">
         {/* Header */}
@@ -50,7 +50,7 @@ const ExperienceSection = ({ experiences }) => {
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="section-heading-sub mb-3">My Professional Journey</p>
           <h2
@@ -66,7 +66,7 @@ const ExperienceSection = ({ experiences }) => {
           className="flex flex-col lg:flex-row gap-6"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.15 }}
+          transition={{ duration: 0.42, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* LEFT: Job list */}
           <div className="flex flex-col gap-3 lg:w-72 flex-shrink-0">
@@ -77,17 +77,19 @@ const ExperienceSection = ({ experiences }) => {
                 <motion.button
                   key={i}
                   onClick={() => setSelected(i)}
-                  className="flex items-center gap-4 p-4 rounded-2xl text-left w-full transition-all duration-200"
+                  className="flex items-center gap-4 p-4 rounded-2xl text-left w-full"
                   style={{
                     background: isActive
-                      ? 'linear-gradient(135deg, rgba(145,94,255,0.18), rgba(105,54,245,0.12))'
-                      : 'rgba(16,13,37,0.6)',
+                      ? 'rgba(163,199,47,0.1)'
+                      : 'rgba(27,30,43,0.7)',
                     border: isActive
-                      ? '1px solid rgba(145,94,255,0.4)'
-                      : '1px solid rgba(255,255,255,0.05)',
-                    boxShadow: isActive ? '0 4px 24px rgba(145,94,255,0.12)' : 'none',
+                      ? '1px solid rgba(163,199,47,0.4)'
+                      : '1px solid rgba(163,199,47,0.08)',
+                    boxShadow: isActive ? '0 4px 24px rgba(163,199,47,0.1)' : 'none',
+                    backdropFilter: 'blur(8px)',
+                    transition: 'all 0.3s',
                   }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
                   whileTap={{ scale: 0.98 }}
                 >
                   {/* Company logo circle */}
@@ -121,13 +123,13 @@ const ExperienceSection = ({ experiences }) => {
                     </p>
                     <p
                       className="text-xs mt-0.5"
-                      style={{ color: isActive ? '#c4b5fd' : '#aaa6c3' }}
+                      style={{ color: isActive ? '#C8E44A' : '#B3B8C5' }}
                     >
                       {exp.company}
                     </p>
                     <p
                       className="text-xs mt-0.5"
-                      style={{ color: isActive ? '#a78bfa' : '#6b7280' }}
+                      style={{ color: isActive ? '#A3C72F' : '#6b7280' }}
                     >
                       {exp.date}
                     </p>
@@ -137,22 +139,26 @@ const ExperienceSection = ({ experiences }) => {
             })}
           </div>
 
-          {/* RIGHT: Detail panel */}
-          <div className="flex-1 min-w-0">
+          {/* RIGHT: Detail panel — fixed height wrapper prevents layout shift */}
+          <div className="flex-1 min-w-0" style={{ position: 'relative', minHeight: 'max(420px, 55vh)' }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={selected}
-                className="rounded-2xl p-5 sm:p-8 h-full"
+                className="rounded-2xl p-5 sm:p-8"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(21,16,48,0.95), rgba(13,11,34,0.98))',
+                  position: 'absolute',
+                  inset: 0,
+                  overflowY: 'auto',
+                  background: 'rgba(27,30,43,0.85)',
+                  backdropFilter: 'blur(12px)',
+                  WebkitBackdropFilter: 'blur(12px)',
                   border: `1px solid ${meta.accent}33`,
-                  boxShadow: `0 8px 40px ${meta.accent}12`,
-                  minHeight: 300,
+                  boxShadow: `0 8px 40px ${meta.accent}10`,
                 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
+                initial={{ opacity: 0, y: 28 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -18 }}
+                transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Title */}
                 <h3
@@ -163,7 +169,7 @@ const ExperienceSection = ({ experiences }) => {
                 </h3>
 
                 {/* Company */}
-                <p className="text-sm mb-1" style={{ color: '#aaa6c3' }}>
+                <p className="text-sm mb-1" style={{ color: '#B3B8C5' }}>
                   {active.company}
                   {active.location && (
                     <span style={{ color: '#6b7280' }}> · {active.location}</span>
@@ -171,7 +177,7 @@ const ExperienceSection = ({ experiences }) => {
                 </p>
 
                 {/* Date */}
-                <p className="text-sm mb-6" style={{ color: '#aaa6c3' }}>
+                <p className="text-sm mb-6" style={{ color: '#B3B8C5' }}>
                   {active.date}
                 </p>
 
