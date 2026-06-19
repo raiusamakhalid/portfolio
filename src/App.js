@@ -8,6 +8,7 @@ import ExperienceSection from './components/ExperienceSection';
 import ProjectsSection from './components/ProjectsSection';
 import EducationSection from './components/EducationSection';
 import ContactSection from './components/ContactSection';
+import ChatBot from './components/ChatBot';
 
 import { aboutMe } from './data/aboutMe';
 import { experiences } from './data/experiences';
@@ -59,6 +60,7 @@ const App = () => {
         <EducationSection />
         <ContactSection aboutMe={aboutMe} />
       </div>
+      <ChatBot />
     </div>
   );
 };
