@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-const API_URL = process.env.REACT_APP_CHATBOT_API_URL || 'http://localhost:5000/chat';
-const API_KEY = process.env.REACT_APP_CHATBOT_API_KEY || 'usamakhalid_portfolio_sk_2024_xK9mPqR3nZvLwT7j';
+const API_URL = process.env.REACT_APP_CHATBOT_API_URL;
+const API_KEY = process.env.REACT_APP_CHATBOT_API_KEY;
 
 const ACCENT = '#A3C72F';
 const BG_DARK = '#0D0E17';
@@ -73,7 +73,7 @@ export default function ChatBot() {
     setTyping(true);
 
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(API_URL + '/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
