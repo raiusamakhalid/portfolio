@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { getAnswer } from '../data/cvKnowledgeBase';
+
+const API_URL = process.env.REACT_APP_CHATBOT_API_URL;
+const API_KEY = process.env.REACT_APP_CHATBOT_API_KEY;
 
 const ACCENT = '#A3C72F';
 const BG_DARK = '#0D0E17';
@@ -62,7 +64,7 @@ export default function ChatBot() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
-  function sendMessage(text) {
+  async function sendMessage(text) {
     const question = text.trim();
     if (!question) return;
 
@@ -70,11 +72,60 @@ export default function ChatBot() {
     setInput('');
     setTyping(true);
 
-    setTimeout(() => {
-      const answer = getAnswer(question);
+    try {
+      const res = await fetch(API_URL + '/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY,
+        },
+        body: JSON.stringify({ question }),
+      });
+
+      if (!res.ok) {
+        setMessages((prev) => [...prev, { from: 'bot', text: "Sorry, I couldn't reach the server. Please try again!" }]);
+        return;
+      }
+
+      // Add an empty bot message and stream chunks into it
+      setMessages((prev) => [...prev, { from: 'bot', text: '' }]);
       setTyping(false);
-      setMessages((prev) => [...prev, { from: 'bot', text: answer }]);
-    }, 1800);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop(); // keep incomplete last line
+
+        for (const line of lines) {
+          if (!line.startsWith('data:')) continue;
+          const payload = line.slice(5).trim();
+          if (payload === '[DONE]') break;
+
+          try {
+            const { text: chunk } = JSON.parse(payload);
+            setMessages((prev) => {
+              const updated = [...prev];
+              updated[updated.length - 1] = {
+                ...updated[updated.length - 1],
+                text: updated[updated.length - 1].text + chunk,
+              };
+              return updated;
+            });
+          } catch { /* skip malformed chunk */ }
+        }
+      }
+    } catch {
+      setMessages((prev) => [...prev, { from: 'bot', text: "Connection error. Make sure the server is running!" }]);
+    } finally {
+      setTyping(false);
+    }
   }
 
   function handleKey(e) {
