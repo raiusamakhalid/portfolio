@@ -157,29 +157,45 @@ const HeroSection = ({ aboutMe }) => {
 
           {/* RIGHT: Circular photo + contact info */}
           <motion.div
-            className="flex-shrink-0 flex flex-col items-center gap-5 w-full lg:w-auto"
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex-shrink-0 flex flex-col items-center gap-5 w-full lg:w-auto mt-6 lg:mt-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* Circular profile image */}
+            {/* Circular profile image — opacity-only motion avoids GPU blur from transforms */}
             {aboutMe.imageUrl && (
               <div
                 style={{
-                  width: 'clamp(150px, 30vw, 210px)',
-                  height: 'clamp(150px, 30vw, 210px)',
+                  width: 'clamp(160px, 32vw, 240px)',
+                  height: 'clamp(160px, 32vw, 240px)',
                   borderRadius: '50%',
-                  overflow: 'hidden',
                   border: '3px solid rgba(163,199,47,0.5)',
                   boxShadow: '0 0 40px rgba(163,199,47,0.25), 0 0 80px rgba(163,199,47,0.1)',
                   background: '#1B1E2B',
                   flexShrink: 0,
+                  padding: 0,
+                  overflow: 'hidden',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden',
                 }}
               >
                 <img
                   src={aboutMe.imageUrl}
                   alt={aboutMe.name}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  width={1024}
+                  height={1024}
+                  decoding="async"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center 18%',
+                    display: 'block',
+                    borderRadius: '50%',
+                    /* smoother circle anti-aliasing on Chromium */
+                    WebkitMaskImage: '-webkit-radial-gradient(white, black)',
+                    maskImage: 'radial-gradient(white, black)',
+                  }}
                   onError={(e) => { e.target.parentElement.style.display = 'none'; }}
                 />
               </div>

@@ -1,12 +1,13 @@
 export const experiences = [
   {
-    date: 'Aug 2025 – Present',
+    date: 'Sep 2025 – Present',
     title: 'Senior Full Stack Engineer',
     company: 'Aslase',
     location: 'Dubai, UAE (Remote)',
     bullets: [
       'Designed enterprise HR & workflow systems for 1000+ users, improving operational efficiency by 40–45%.',
       'Built task management system (CRUD + Kanban + pipelines) handling 1000+ tasks/month, reducing hiring time by 30%.',
+      'Integrated an AI-powered succession planning pipeline (OpenAI API) for automated candidate evaluation and nomination scoring.',
       'Integrated secure file upload system with Azure proxy, eliminating 90% of CORS-related issues.',
       'Implemented time tracking extension used by 500+ users, improving accuracy by 35% and reducing manual effort by 60%.',
       'Implemented JWT and SSO authentication systems, enhancing data security by 50% and system reliability by 40%.',
@@ -14,7 +15,7 @@ export const experiences = [
     ],
   },
   {
-    date: 'Mar 2025 – Aug 2025',
+    date: 'Mar 2025 – Sep 2025',
     title: 'Software Engineer',
     company: 'Softtik Technologies',
     location: 'Lahore, Pakistan (On-site)',
