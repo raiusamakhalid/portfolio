@@ -68,11 +68,12 @@ const HexIcon = ({ tech, index, inView }) => (
 );
 
 const categoryColors = {
-  'Frontend':      '#A3C72F',
-  'Backend':       '#00BFFF',
-  'Databases':     '#4ade80',
-  'Cloud & DevOps':'#fb923c',
-  'Blockchain':    '#f472b6',
+  'Frontend':       '#A3C72F',
+  'Backend':        '#00BFFF',
+  'AI & LLM':       '#2DD4BF',
+  'Databases':      '#4ade80',
+  'Cloud & DevOps': '#fb923c',
+  'Blockchain':     '#f472b6',
 };
 
 const SkillsSection = () => {

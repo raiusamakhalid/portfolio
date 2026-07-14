@@ -16,7 +16,7 @@ const ProfileSection = ({ aboutMe }) => {
             <div className="relative max-h-[45vh] md:w-[65%] aspect-[3/4]">
               <img
                 src={aboutMe.imageUrl}
-                alt={`${aboutMe.name} - Full Stack & Blockchain Developer`}
+                alt={`${aboutMe.name} - Senior Full Stack & AI Engineer`}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>

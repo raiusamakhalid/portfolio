@@ -6,29 +6,29 @@ const services = [
   {
     title: 'Full Stack Development',
     icon: Globe,
-    description: 'End-to-end web applications using React, Next.js, Node.js, and NestJS with a focus on performance and scalability.',
+    description: 'End-to-end web applications using React, Next.js, Vue.js, Node.js, and NestJS with a focus on performance and scalability.',
+  },
+  {
+    title: 'AI & LLM Engineering',
+    icon: Zap,
+    description: 'LLM integration (OpenAI, Claude, Groq), RAG pipelines, LangChain.js, voice AI agents (VAPI.ai), and prompt engineering.',
   },
   {
     title: 'Backend Engineering',
     icon: Server,
-    description: 'Scalable REST APIs, microservices architecture, real-time systems with WebSockets, and relational/NoSQL databases.',
-  },
-  {
-    title: 'Blockchain & Web3',
-    icon: Zap,
-    description: 'Smart contracts in Solidity and Rust, DeFi protocols, Solana programs, and Ethereum dApps.',
+    description: 'Scalable REST APIs, microservices, real-time systems with Socket.io and LiveKit, plus PostgreSQL, Prisma, and MongoDB.',
   },
   {
     title: 'Cloud & DevOps',
     icon: Cloud,
-    description: 'Cloud infrastructure on AWS and Azure, CI/CD pipelines, containerization, and production deployments.',
+    description: 'Cloud infrastructure on AWS and Azure, Docker, CI/CD pipelines, Key Vaults, SSO, and production deployments.',
   },
 ];
 
 const stats = [
   { value: '3+', label: 'Years Experience' },
   { value: 'G42 & Mubadala', label: 'Enterprise Clients' },
-  { value: '5+', label: 'Production Projects' },
+  { value: 'Clinic AI', label: 'Voice AI Founder' },
 ];
 
 const CARD = {
