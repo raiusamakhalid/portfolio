@@ -12,6 +12,6 @@ export const aboutMe = {
   website: 'usamakhalid.dev',
   linkedinUsername: 'raiusamakhalid',
   githubUsername: 'raiusamakhalid',
-  imageUrl: '/profile-image.jpg',
+  imageUrl: '/profile-avatar.jpg',
   cvUrl: '/usamakhalid.pdf',
 };

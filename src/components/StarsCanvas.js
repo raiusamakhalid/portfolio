@@ -1,6 +1,8 @@
-import React, { useRef, Suspense } from 'react';
+import React, { Suspense, useMemo, useRef, Component } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, Preload } from '@react-three/drei';
+
+const BG = '#0D0E17';
 
 const generateSpherePoints = (count) => {
   const positions = new Float32Array(count * 3);
@@ -17,22 +19,22 @@ const generateSpherePoints = (count) => {
 
 const Stars = () => {
   const ref = useRef();
-  const sphere = generateSpherePoints(2200);
+  const positions = useMemo(() => generateSpherePoints(2200), []);
 
-  useFrame((_state, delta) => {
-    if (ref.current) {
-      ref.current.rotation.x -= delta / 80;
-      ref.current.rotation.y -= delta / 120;
-    }
+  useFrame((_, delta) => {
+    if (!ref.current) return;
+    // Steady slow drift
+    ref.current.rotation.x -= delta / 55;
+    ref.current.rotation.y -= delta / 80;
   });
 
   return (
     <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled>
+      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
         <PointMaterial
           transparent
           color="#ffffff"
-          size={0.003}
+          size={0.0028}
           sizeAttenuation
           depthWrite={false}
         />
@@ -41,24 +43,50 @@ const Stars = () => {
   );
 };
 
+class StarsErrorBoundary extends Component {
+  state = { hasError: false };
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    if (this.state.hasError) return null;
+    return this.props.children;
+  }
+}
+
 const StarsCanvas = () => (
   <div
+    aria-hidden
     style={{
       position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
+      inset: 0,
       zIndex: 0,
       pointerEvents: 'none',
+      background: BG,
     }}
   >
-    <Canvas camera={{ position: [0, 0, 1] }}>
-      <Suspense fallback={null}>
-        <Stars />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+    <StarsErrorBoundary>
+      <Canvas
+        camera={{ position: [0, 0, 1.2], fov: 60 }}
+        dpr={[1, 1.75]}
+        gl={{
+          antialias: false,
+          alpha: false,
+          powerPreference: 'high-performance',
+        }}
+        style={{ width: '100%', height: '100%', background: BG, display: 'block' }}
+        onCreated={({ gl }) => {
+          gl.setClearColor(BG, 1);
+          const canvas = gl.domElement;
+          canvas.style.background = BG;
+        }}
+      >
+        <Suspense fallback={null}>
+          <Stars />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </StarsErrorBoundary>
   </div>
 );
 

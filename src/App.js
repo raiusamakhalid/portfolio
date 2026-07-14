@@ -17,7 +17,14 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="relative min-h-screen" style={{ background: '#0D0E17', fontFamily: 'Poppins, sans-serif' }}>
+    <div
+      className="relative min-h-screen"
+      style={{
+        backgroundColor: '#0D0E17',
+        background: '#0D0E17',
+        fontFamily: 'Poppins, sans-serif',
+      }}
+    >
       {/* Ambient gradient blobs — fixed, span full page */}
       <div style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0, overflow: 'hidden' }}>
         {/* Left pink/purple glow */}
