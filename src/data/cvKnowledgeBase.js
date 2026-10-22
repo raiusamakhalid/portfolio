@@ -1,23 +1,31 @@
 export const knowledgeBase = [
   {
     keywords: ['skill', 'tech', 'stack', 'technology', 'language', 'framework', 'tools', 'know', 'use', 'expertise', 'proficient'],
-    answer: `I'm proficient in:\n\n• **Frontend:** React.js, Next.js, Vue.js, JavaScript, TypeScript, Tailwind CSS\n• **Backend:** Node.js, Nest.js, Express.js, Socket.io, LiveKit, Microservices\n• **AI & LLM:** OpenAI, Claude, Groq/Llama, RAG pipelines, LangChain.js, LangGraph.js, Pinecone, Voice AI (VAPI.ai), Prompt Engineering\n• **Databases:** PostgreSQL, MongoDB, MySQL, Prisma, TypeORM\n• **Cloud & DevOps:** AWS, Azure, Docker, CI/CD, SSO, Key Vaults\n• **Blockchain:** Solidity, Rust (Solana), Web3.js`,
+    answer: `I'm proficient in:\n\n• **Frontend:** React.js, Next.js, Vue.js, Inertia.js, JavaScript, TypeScript, Tailwind CSS\n• **Backend:** Node.js, NestJS, Express.js, Laravel, Socket.io, LiveKit, Microservices, WhatsApp (Baileys), Twilio, Stripe\n• **AI & LLM:** OpenAI, Claude, Groq/Llama, RAG pipelines, LangChain.js, LangGraph.js, Pinecone, Voice AI (VAPI.ai), Prompt Engineering\n• **Databases:** PostgreSQL, MongoDB, MySQL, Supabase, Prisma, TypeORM\n• **Cloud & DevOps:** AWS, Azure, Docker, CI/CD, SSO, Key Vaults\n• **Blockchain:** Solidity, Rust (Solana), Web3.js`,
   },
   {
     keywords: ['experience', 'work', 'job', 'career', 'company', 'employer', 'position', 'role', 'history', 'background'],
-    answer: `I have 3+ years of professional experience:\n\n• **Senior Full Stack Engineer** @ Aslase (Dubai, UAE Remote) — Sep 2025–Present\n• **Software Engineer** @ Softtik Technologies (Lahore) — Mar 2025–Sep 2025\n• **Associate Software Engineer** @ Vaival Technologies (Lahore) — Aug 2023–Feb 2025`,
+    answer: `I have 3+ years of professional experience:\n\n• **Full Stack Engineer** @ Aslase (Dubai, UAE Remote) — Sep 2025–Present\n• **Software Engineer** @ Softtik Technologies (Lahore) — Mar 2025–Sep 2025\n• **Associate Software Engineer** @ Vaival Technologies (Lahore) — Aug 2023–Feb 2025`,
   },
   {
-    keywords: ['aslase', 'current', 'now', 'present', 'latest', 'recent', 'senior'],
-    answer: `Currently I'm a **Senior Full Stack Engineer at Aslase** (Dubai, UAE — Remote) since Sep 2025.\n\nKey achievements:\n• Designed enterprise HR & workflow systems for 1000+ users (40–45% efficiency boost)\n• Built task management system reducing hiring time by 30%\n• Integrated AI-powered succession planning (OpenAI API) for candidate evaluation\n• Implemented JWT & SSO auth systems improving security by 50%\n• Enterprise clients: Mubadala Investment Company & G42`,
+    keywords: ['aslase', 'current', 'now', 'present', 'latest', 'recent'],
+    answer: `Currently I'm a **Full Stack Engineer at Aslase** (Dubai, UAE — Remote) since Sep 2025.\n\nKey achievements:\n• Designed enterprise HR & workflow systems for 1000+ users (40–45% efficiency boost)\n• Built task management system reducing hiring time by 30%\n• Integrated AI-powered succession planning (OpenAI API) for candidate evaluation\n• Delivered a Stripe-integrated chauffeur booking platform for a Toronto-based client\n• Implemented JWT & SSO auth systems\n• Enterprise clients: Mubadala Investment Company & G42`,
   },
   {
     keywords: ['clinic', 'vapi', 'twilio', 'receptionist', 'healthcare', 'founder', 'voice ai'],
     answer: `**Clinic AI** is a multi-tenant Voice AI SaaS receptionist I founded for GCC healthcare clinics.\n\nIt answers calls, books appointments, and manages patient queries autonomously. Stack: VAPI.ai + Twilio call routing, Claude, NestJS, PostgreSQL, Prisma, Google Calendar API — with region-compliant Gulf telephony.`,
   },
   {
+    keywords: ['orderli', 'whatsapp', 'baileys', 'sales agent', 'support agent', 'leads'],
+    answer: `**Orderli** is a multi-tenant WhatsApp AI sales & support agent I founded (orderliapp.com).\n\nBusinesses deploy an AI agent on their own WhatsApp number to answer queries, recommend products, capture leads, and follow up 24/7. Each business gets a RAG knowledge base trained from its website, PDFs, catalogs, and FAQs, with multimodal handling (text, voice notes, images) and replies in 20+ languages.\n\nTech: Next.js, TypeScript, Supabase (PostgreSQL), Baileys, LLM APIs, RAG`,
+  },
+  {
+    keywords: ['blackdoor', 'limo', 'chauffeur', 'booking', 'stripe', 'laravel', 'canada', 'toronto'],
+    answer: `**Blackdoor Limo** (blackdoorlimo.com) is a chauffeur booking platform I built for a Canadian client.\n\nRoute selection, scheduling, distance-based fare & tax calculation, vehicle selection, and multi-step booking forms for airport, hourly, and long-distance trips — plus Stripe payments, invoices, custom quotations, and automated email notifications.\n\nTech: Laravel, PHP, Vue.js, Inertia.js, TypeScript, Tailwind CSS, Stripe`,
+  },
+  {
     keywords: ['softtik', 'rag', 'openai', 'llm', 'langchain', 'vector', 'retool', 'machine learning', 'pinecone', 'groq'],
-    answer: `I build AI-powered products across roles:\n\n• **Clinic AI** — multi-tenant Voice AI SaaS receptionist (VAPI.ai, Claude, NestJS)\n• **Softtik** — RAG systems with OpenAI + vector DBs (40% better retrieval)\n• **Aslase** — AI succession planning pipeline for hiring workflows\n• Stack: LangChain.js, Groq, Pinecone, prompt engineering, Voice AI agents`,
+    answer: `I build AI-powered products across roles:\n\n• **Clinic AI** — multi-tenant Voice AI SaaS receptionist (VAPI.ai, Claude, NestJS)\n• **Orderli** — multi-tenant WhatsApp AI sales & support agent with per-business RAG\n• **Softtik** — RAG systems with OpenAI + vector DBs (40% better retrieval)\n• **Aslase** — AI succession planning pipeline for hiring workflows\n• Stack: LangChain.js, Groq, Pinecone, prompt engineering, Voice AI agents`,
   },
   {
     keywords: ['vaival', 'blockchain', 'smart contract', 'web3', 'solidity', 'nft'],
@@ -25,7 +33,7 @@ export const knowledgeBase = [
   },
   {
     keywords: ['project', 'portfolio', 'built', 'made', 'work on', 'developed', 'application'],
-    answer: `Notable projects I've worked on:\n\n1. **Clinic AI** — Multi-tenant Voice AI SaaS receptionist (Founder)\n2. **Takafo.ai** — AI Recruitment SaaS for Mubadala Investment Company (Dubai)\n3. **G42 Dashboards** — AI Enterprise Analytics for G42, Abu Dhabi\n4. **AI Portfolio Chatbot** — RAG assistant (LangChain, Groq, Pinecone)\n5. **Diligentsia** — AI Company Auditing platform (UK) — Live at diligentsia.co.uk\n6. **CUX Sync** — Real-time Jira-like collaboration system\n7. **Modern Poker Club** — Web2/Web3 poker platform with NFT rewards`,
+    answer: `Notable projects I've worked on:\n\n1. **Clinic AI** — Multi-tenant Voice AI SaaS receptionist (Founder)\n2. **Orderli** — Multi-tenant WhatsApp AI sales & support agent (Founder) — orderliapp.com\n3. **Takafo.ai** — AI Recruitment SaaS for Mubadala Investment Company (Dubai)\n4. **G42 Dashboards** — AI Enterprise Analytics for G42, Abu Dhabi\n5. **Blackdoor Limo** — Limo booking platform with Stripe (Canada) — blackdoorlimo.com\n6. **Diligentsia** — AI Company Auditing platform (UK) — diligentsia.co.uk\n7. **AI Portfolio Chatbot** — RAG assistant (LangChain, Groq, Pinecone)\n8. **CUX Sync** — Real-time Jira-like collaboration system\n9. **Modern Poker Club** — Web2/Web3 poker platform with NFT rewards`,
   },
   {
     keywords: ['takafo', 'mubadala', 'recruitment', 'hiring', 'saas'],
@@ -57,7 +65,7 @@ export const knowledgeBase = [
   },
   {
     keywords: ['about', 'who', 'yourself', 'introduce', 'tell me', 'summary', 'overview'],
-    answer: `I'm **Usama Khalid**, a Senior Full Stack & AI Engineer with 3+ years of experience building scalable web apps and AI-powered products across SaaS, fintech, healthcare, and real-time systems.\n\nI specialize in JavaScript/TypeScript, React.js, Node.js, NestJS, and AI engineering (RAG, LLMs, Voice AI). I'm the founder of **Clinic AI**, and I've delivered production solutions for **G42** and **Mubadala Investment Company**.`,
+    answer: `I'm **Usama Khalid**, a Full Stack AI Engineer with 3+ years of experience building scalable web apps and AI-powered products across SaaS, fintech, healthcare, and real-time systems.\n\nI specialize in JavaScript/TypeScript, React.js, Node.js, NestJS, and AI engineering (RAG, LLMs, Voice AI). I'm the founder of **Clinic AI** and **Orderli**, and I've delivered production solutions for **G42** and **Mubadala Investment Company**.`,
   },
   {
     keywords: ['react', 'frontend', 'ui', 'interface', 'component'],
@@ -65,7 +73,7 @@ export const knowledgeBase = [
   },
   {
     keywords: ['node', 'backend', 'server', 'api', 'rest', 'nest', 'express'],
-    answer: `On the backend, I primarily use **NestJS** and **Node.js/Express.js** to build REST APIs and microservices. I'm experienced with JWT/SSO authentication, real-time systems (Socket.io, LiveKit), Prisma/TypeORM, and cloud deployments on **AWS** and **Azure**.`,
+    answer: `On the backend, I primarily use **NestJS**, **Node.js/Express.js**, and **Laravel** to build REST APIs and microservices. I'm experienced with JWT/SSO authentication, real-time systems (Socket.io, LiveKit), Prisma/TypeORM, and cloud deployments on **AWS** and **Azure**.`,
   },
   {
     keywords: ['database', 'db', 'postgres', 'mongodb', 'mysql', 'sql', 'nosql', 'prisma'],
